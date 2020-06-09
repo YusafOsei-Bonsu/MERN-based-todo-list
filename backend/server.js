@@ -39,13 +39,16 @@ todoRoutes.route('/add').post((req, res) => {
 todoRoutes.route("/update/:id").post((req, res) => {
     Todo.findById(req.params.id, (err, todo) => {
         if (!todo) {
+            // If the todo item can't be found in the db
             res.status(404).send("data is not found!");
         } else {
+            // New data from the HTTP request
             todo.todo_description = req.body.todo_description;
             todo.todo_responsible = req.body.todo_responsible;
             todo.todo_priority = req.body.todo_priority;
             todo.todo_completed = req.body.todo_completed;
-
+            
+            // Saves the updated object
             todo.save()
                 .then(todo => res.json("Todo updated!"))
                 .catch(err => res.status(400).send("Update not possible!"));
