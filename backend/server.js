@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 // Adding the router as a middleware
 app.use('/todos', todoRoutes);
 
+// Connecting to the todos db
 mongoose.connect("mongodb://127.0.0.1:27017/todos", { useNewUrlParser: true, useUnifiedTopology: true  });
 const connection = mongoose.connection;
 
@@ -24,6 +25,14 @@ todoRoutes.route('/').get((req, res) => Todo.find((err, todos) => err ? console.
 todoRoutes.route('/:id').get((req, res) => {
     let id = req.params.id;
     Todo.findById(id, (err, todo) => res.json(todo));
+});
+
+// Inserts a new todo task into the MongoDB database
+todoRoutes.route('/add').post((req, res) => {
+    let todo = new Todo(req.body);
+    todo.save()
+        .then(todo => res.status(200).json({ "todo": "todo added successfully" }))
+        .catch(err => res.status(400).send("Inserting new todo failed!!"));
 });
 
 // Message is printed to confirm successful connection to the MongoDB db
