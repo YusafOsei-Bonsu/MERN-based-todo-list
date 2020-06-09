@@ -20,6 +20,12 @@ const connection = mongoose.connection;
 // Delivers all available todo items
 todoRoutes.route('/').get((req, res) => Todo.find((err, todos) => err ? console.log(err) : res.json(todos)));
 
+// Delivers a specific todo task by id
+todoRoutes.route('/:id').get((req, res) => {
+    let id = req.params.id;
+    Todo.findById(id, (err, todo) => res.json(todo));
+});
+
 // Message is printed to confirm successful connection to the MongoDB db
 connection.once('open', () => console.log("MongoDB database connection established successfully"));
 
