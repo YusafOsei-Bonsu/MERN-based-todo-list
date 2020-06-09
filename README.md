@@ -14,5 +14,5 @@ First, I created the front-end, which consisted of three main components: `Creat
 ## What Did I Learn?
 
 - I had no knowledge on how to set-up MongoDB on PowerShell. Fortunately from online sources, I learn' how to.. .
-- - Run the MongoDB server & set the data directory by entering `& "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath "./data/db"`.
-- - Open Mongo Shell using `& "C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe"`.
+  - Run the MongoDB server & set the data directory by entering `& "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath "./data/db"`.
+  - Open Mongo Shell using `& "C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe"`.
