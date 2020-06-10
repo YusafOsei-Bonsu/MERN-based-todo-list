@@ -15,7 +15,7 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="https://codingthesmartway.com" target="_blank" rel="noopener noreferrer"><Logo /></a>
+            <a class="navbar-brand" href="/" rel="noopener noreferrer"><Logo /></a>
             <Link to="/" className="navbar-brand">MERN Todo List</Link>
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav mr-auto">
