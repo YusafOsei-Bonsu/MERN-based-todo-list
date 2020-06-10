@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 import "../styles/CreateTodo.css";
 
 class CreateTodo extends React.Component {
@@ -37,7 +37,7 @@ class CreateTodo extends React.Component {
         }
 
         // Adding the new to-do task into the database
-        axios.post("http://localhost:4000/todos/add", newTodo).then(res => console.log(res.data));
+        Axios.post("http://localhost:4000/todos/add", newTodo).then(res => console.log(res.data));
 
         // Resets to initial state for new todo tasks to be entered
         this.setState({ TodoDescription: '', TodoResponsible: '', TodoPriority: '', TodoCompleted: false });
