@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import "../styles/CreateTodo.css";
 
 class CreateTodo extends React.Component {
@@ -27,6 +28,16 @@ class CreateTodo extends React.Component {
         console.log(`Todo Description: ${this.state.TodoDescription}`);
         console.log(`Todo Responsible: ${this.state.TodoResponsible}`);
         console.log(`Todo Priority: ${this.state.TodoPriority}`);
+
+        let newTodo = {
+            todo_description: this.state.TodoDescription,
+            todo_responsible: this.state.TodoResponsible,
+            todo_priority: this.state.TodoPriority,
+            todo_completed: this.state.TodoCompleted
+        }
+
+        // Adding the new to-do task into the database
+        axios.post("http://localhost:4000/todos/add", newTodo).then(res => console.log(res.data));
 
         // Resets to initial state for new todo tasks to be entered
         this.setState({ TodoDescription: '', TodoResponsible: '', TodoPriority: '', TodoCompleted: false });
