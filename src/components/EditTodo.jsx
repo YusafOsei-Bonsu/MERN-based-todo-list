@@ -28,6 +28,17 @@ class EditTodo extends React.Component {
             .catch(err => console.log(err));
     }
 
+    // Updates the state's description
+    onChangeTodoDescription = e => this.setState({ todo_description: e.target.value });
+
+    // Updates the state's responsibility
+    onChangeTodoResponsible = e => this.setState({ todo_responsible: e.target.value });
+
+    // Updates the state's priority
+    onChangeTodoPriority = e => this.setState({ todo_priority: e.target.value });
+
+    onChangeTodoCompleted = e => this.setState({ todo_completed: !(this.state.todo_completed) });
+
     render = () => {
         return (
             <div>
