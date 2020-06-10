@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateTodo from '../components/CreateTodo.jsx';
-import TodoList from '../components/TodoList.jsx';
+import TodoList from '../containers/TodoList.jsx';
 import EditTodo from '../components/EditTodo.jsx';
 import Logo from '../components/Logo.jsx';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
