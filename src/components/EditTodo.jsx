@@ -6,12 +6,7 @@ class EditTodo extends React.Component {
     
     constructor(props) {
         super(props);
-        this.state = { 
-            todo_description: '', 
-            todo_responsible: '', 
-            todo_priority: '',
-            todo_completed: false 
-        }
+        this.state = { todo_description: '', todo_responsible: '', todo_priority: '', todo_completed: false }
     }
 
     // Getting a specific to-do task based-on the provided ID
@@ -38,6 +33,27 @@ class EditTodo extends React.Component {
     onChangeTodoPriority = e => this.setState({ todo_priority: e.target.value });
 
     onChangeTodoCompleted = e => this.setState({ todo_completed: !(this.state.todo_completed) });
+
+    // Upon submit, the to-do task is modified
+    onSubmit = e => {
+        e.preventDefault();
+
+        const todo = {
+            todo_description: this.state.todo_description,
+            todo_responsible: this.state.todo_responsible,
+            todo_priority: this.state.todo_priority,
+            todo_completed: this.state.todo_completed
+        }
+
+        console.log(todo);
+
+        // Update the to-do task
+        Axios.post(`http://localhost:4000/todos/update/${this.props.match.params.id}`, todo)
+            .then(res => console.log(res.data));
+        
+        // Return to the to-do list
+        this.props.history.push('/');
+    }
 
     render = () => {
         return (
