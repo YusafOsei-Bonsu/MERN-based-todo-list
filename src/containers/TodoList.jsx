@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import Todo from './Todo.jsx';
+import Todo from '../components/Todo.jsx';
 
 class TodoList extends React.Component {
     
