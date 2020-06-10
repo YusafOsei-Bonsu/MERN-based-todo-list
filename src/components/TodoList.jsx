@@ -12,7 +12,7 @@ class TodoList extends React.Component {
     }
 
     // Display every to-do task
-    todoList = () => this.state.todos.map((currentTodo, i) => <Todo todo={currentTodo} key={i} />);
+    TodoList = () => this.state.todos.map((currentTodo, i) => <Todo todo={currentTodo} key={i} />);
 
     // Retrieving todos data from the MongoDB database
     componentDidMount = () => {
